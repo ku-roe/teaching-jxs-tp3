@@ -11,14 +11,39 @@
 
 	<div class="container">
 		<h1>Pokésir</h1>
-
-		<!-- Search -->
-		<div></div>
+		
+		<div >
+			<input type="text" ng-model="pokemon" id="namePokemon"/>
+			<br/>
+			{{pokemon}}
+		</div>
+		<div ng-controller="MainCtrl">
+			<label>List of pokemons</label>
+			<select name="repeatSelect" id= "pokeSelect" ng-model="SelectPoke">
+				<option ng-repeat="option in pokemonlists | filter:pokemon" value ="{{option.entry_number}}">{{option.pokemon_species.name}}</option>
+			</select>
+			<button ng-click="go(SelectPoke)">Go !</button>
+			<pre>
+				{{AffichePoke.id}}
+			</pre>
+			<pre>
+				{{AffichePoke.name}}
+			</pre>
+			<pre>
+				<ul>
+					<li ng-repeat="move in AffichePoke.moves">{{ move.name }}</li>
+				</ul>
+			</pre>
+		</div>
+		
 
 		<!-- Pokémon information -->
-		<div></div>
+
 
 	</div>
+
+	
+	
 
     <!-- Dependencies -->
     <script src="js/jquery.min.js"></script>
