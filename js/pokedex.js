@@ -6,18 +6,7 @@ pokeApp.config(['$resourceProvider', function($resourceProvider) {
 
 var pokeApiUrl = "http://pokeapi.co/"
 var monPoke={};
-//Question13
-/*
-pokeApp.factory("Link",function($num, $name,Pokemon){
-	return {
-		get: function(){
-			return this.monPoke;
-		},
-		set: function(idP){
-			this.monPoke = Pokemon.get({id:idP});
-		}
-	}
-});*/
+
 
 pokeApp.factory("Pokemon",function($resource){
 	return $resource("http://pokeapi.co/api/v2/pokemon-species/:id/",{id:'@id'});
@@ -55,10 +44,3 @@ pokeApp.controller('MainCtrl', function ($scope,$log,Pokemon, $http,$resource){
 
 	}
 });
-//Question13
-/*pokeApp.controller('Affichage', function ($scope,Link){
-	$cope.watch('MonPoke', function(){
-		$scope.AffichePoke = Link.get();
-	});
-
-});*/
